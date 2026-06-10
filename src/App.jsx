@@ -76,7 +76,7 @@ export default function App() {
       setError(null);
       const res = await fetch(WEBHOOK_URL);
       const data = await res.json();
-      setReservations(data.reservations || []);
+      setReservations(data[0].reservations || []);
     } catch (e) {
       setError("Could not load reservations. Check your connection.");
     } finally {
