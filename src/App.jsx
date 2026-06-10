@@ -96,7 +96,7 @@ export default function App() {
     try {
       const res = await fetch(BLOCKED_URL);
       const data = await res.json();
-      const records = Array.isArray(data) ? data : (data[0] ? [data[0]] : []);
+      const records = Array.isArray(data) ? data : (data.id ? [data] : (data[0] ? [data[0]] : []));
       const mapped = records.map(r => ({
         id: r.id,
         table_id: r.fields?.Table_ID || r.Table_ID || "",
